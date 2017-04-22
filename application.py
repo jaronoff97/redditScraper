@@ -5,11 +5,12 @@ import os
 application = Flask(__name__)
 DB_NAME = ""
 TABLE_NAME = "redditVisitInformation"
+print(os.environ)
 connection = pymysql.connect(host=os.getenv("RDS_HOSTNAME", "localhost"),
                              user=os.getenv("RDS_USERNAME", "root"),
                              password=os.getenv("RDS_PASSWORD", ""),
-                             db=os.getenv("RDS_DB_NAME", "reddit"),
-                             port=os.getenv("RDS_DB_NAME", 3306),
+                             db="reddit",
+                             port=int(os.getenv("RDS_PORT", 3306)),
                              charset="utf8mb4",
                              cursorclass=pymysql.cursors.DictCursor)
 cur = connection.cursor()
