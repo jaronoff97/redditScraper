@@ -3,10 +3,13 @@
 This project scrapes reddit and inserts a user's comment history into a database. This is the report I wrote up:
 
 
-Jacob Aronoff
-Sunday April 23, 2017
-Data Science 4100
-Final Project Report
+*Jacob Aronoff*
+
+*Sunday April 23, 2017*
+
+*Data Science 4100*
+
+*Final Project Report*
 
 
 ## Project Goal:
