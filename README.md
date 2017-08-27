@@ -26,9 +26,9 @@ With more time, I would be able to make a frontend to interact with the scraper 
 
 ## Results:
 
-[Submissions](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/submissions.png)
-[Occurances](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/occurances.png)
-[My results](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/myresults.png)
+![Submissions](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/submissions.png)
+![Occurances](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/occurances.png)
+![My results](https://raw.githubusercontent.com/jaronoff97/redditScraper/master/myresults.png)
 
 
 Technically, my algorithm is predicting where else I’m likely to post and/or comment, however, considering I’m making the assumption that one’s amount of posts and/or comments indicates a preference, it’s fair to say that I’m likely to also enjoy “pcmasterrace”
