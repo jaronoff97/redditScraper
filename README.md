@@ -35,3 +35,71 @@ With more time, I would be able to make a frontend to interact with the scraper 
 
 
 Technically, my algorithm is predicting where else I’m likely to post and/or comment, however, considering I’m making the assumption that one’s amount of posts and/or comments indicates a preference, it’s fair to say that I’m likely to also enjoy “pcmasterrace”
+
+
+## USAGE
+
+
+### Scraper
+
+Setup scraper:
+
+
+`pip install -r requirements.txt`
+`touch .env`
+fill .env with the following info:
+
+```
+RDS_HOSTNAME=_X_X_X_X_X_X_X
+RDS_DB_NAME=_X_X_X_X_X_X_X
+RDS_PASSWORD=_X_X_X_X_X_X_X
+RDS_PORT=_X_X_X_X_X_X_X
+RDS_USERNAME=_X_X_X_X_X_X_X
+CLIENT_ID=_X_X_X_X_X_X_X
+CLIENT_SECRET=_X_X_X_X_X_X_X
+```
+`export $(cat .env | xargs)`
+Change lines 23 and 24 to your initial username
+`python scraper.py`
+let that run as long as you want, you may need to restart it a couple of times
+
+You can check the progress by running `application.py` and visiting localhost
+
+### Analysis
+
+Setup the database
+
+IN SQL
+~~~ SQL
+CREATE TABLE `redditUser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+CREATE TABLE `redditVisitInformation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `redditUser_id` int(11) DEFAULT NULL,
+  `subreddit` varchar(255) DEFAULT NULL,
+  `timesCommented` int(11) DEFAULT NULL,
+  `timesPosted` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `redditUser_id` (`redditUser_id`),
+  CONSTRAINT `redditvisitinformation_ibfk_1` FOREIGN KEY (`redditUser_id`) REFERENCES `redditUser` (`id`)
+)
+~~~
+
+In R
+
+install:
+
+* recommenderlab
+* RMySQL
+
+Be sure you sourced your environment variables
+
+Call the RScript with your username:
+
+`Rscript project.R <username>`
+
+
+
